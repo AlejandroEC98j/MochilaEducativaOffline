@@ -1,0 +1,150 @@
+/**
+ * Mochila Educativa Offline - Patrones Textiles e Identidad Andina (Calca, Cusco)
+ * Elementos decorativos basados en geometría textil andina (chumpis, tokapus y kené).
+ */
+
+/* Guarda Textil Andina Superior / Inferior */
+.andean-textile-border {
+  height: 8px;
+  width: 100%;
+  background-color: var(--color-verde-oscuro);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--color-terracota) 0,
+    var(--color-terracota) 10px,
+    var(--color-ocre-dorado) 10px,
+    var(--color-ocre-dorado) 20px,
+    var(--color-verde-medio) 20px,
+    var(--color-verde-medio) 30px,
+    var(--color-azul-noche) 30px,
+    var(--color-azul-noche) 40px
+  );
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.andean-banner {
+  background: linear-gradient(135deg, var(--color-verde-oscuro) 0%, var(--color-verde-medio) 100%);
+  color: #ffffff;
+  border-radius: var(--radio-lg);
+  padding: 1.75rem 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--sombra-md);
+  margin-bottom: 1.75rem;
+}
+
+/* Patrón Geométrico Andino de Fondo (SVG Data URI estilizado y sutil) */
+.andean-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 45%;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z' fill='none' stroke='%23ffffff' stroke-width='4'/%3E%3Cpath d='M40 14 L66 40 L40 66 L14 40 Z' fill='none' stroke='%23ffffff' stroke-width='3'/%3E%3Crect x='34' y='34' width='12' height='12' fill='%23ffffff'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+/* Variante Azul Cordillera para el Docente */
+.andean-banner.docente-theme {
+  background: linear-gradient(135deg, var(--color-azul-noche) 0%, var(--color-azul-medio) 100%);
+}
+
+.andean-banner.docente-theme::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpolygon points='30,0 60,30 30,60 0,30' fill='none' stroke='%23ffffff' stroke-width='3'/%3E%3Cpolygon points='30,10 50,30 30,50 10,30' fill='none' stroke='%23d4a373' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* Variante Terracota Cálida para la Simulación de IA */
+.andean-banner.ia-theme {
+  background: linear-gradient(135deg, #7c2d12 0%, var(--color-terracota) 60%, var(--color-ocre-dorado) 100%);
+}
+
+/* Variante Radio y USB */
+.andean-banner.radio-theme {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2b5876 50%, var(--color-verde-medio) 100%);
+}
+
+/* Insignias y Etiquetas Culturales */
+.tag-quechua {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: var(--color-ocre-suave);
+  color: #78350f;
+  border: 1px solid #d4a373;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radio-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.tag-calca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: var(--color-verde-menta);
+  color: var(--color-verde-oscuro);
+  border: 1px solid var(--color-verde-claro);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radio-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.tag-materia-mat {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radio-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.tag-materia-lec {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radio-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+/* Cinta Decorativa Tokapu */
+.tokapu-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  color: var(--color-texto-apagado);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tokapu-divider::before,
+.tokapu-divider::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-tierra-borde) 0,
+    var(--color-tierra-borde) 8px,
+    transparent 8px,
+    transparent 14px
+  );
+}
+
+.tokapu-diamond {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-terracota);
+  transform: rotate(45deg);
+  border-radius: 1px;
+}

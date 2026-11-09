@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mochila Educativa Offline | Prototipo Visual e Interactivo - Calca, Cusco</title>
+  
+  <!-- Estilos del Prototipo -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/andean-patterns.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Guarda Textil Andina Superior -->
+  <div class="andean-textile-border"></div>
+
+  <!-- Encabezado Superior Global -->
+  <header class="top-navbar">
+    <div class="brand-wrapper" id="nav-brand-home" title="Ir al inicio del prototipo">
+      <div class="brand-logo-icon">🎒</div>
+      <div class="brand-text-container">
+        <h1>Mochila Educativa Offline</h1>
+        <div class="brand-sub">
+          <span>🌾 Calca, Cusco</span>
+          <span>•</span>
+          <span>I.E. Rural San Jerónimo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Indicador de Conectividad 100% Offline -->
+    <div class="offline-status-badge">
+      <span class="offline-pulse-dot"></span>
+      <span>Modo sin conexión</span>
+    </div>
+
+    <!-- Selector de Rol y Acciones -->
+    <div class="header-actions">
+      <div class="role-switcher-toggle" aria-label="Cambiar vista">
+        <button type="button" class="role-btn active" id="btn-role-estudiante">
+          <span>👩‍🎓</span>
+          <span>Estudiante</span>
+        </button>
+        <button type="button" class="role-btn" id="btn-role-docente">
+          <span>👨‍🏫</span>
+          <span>Docente</span>
+        </button>
+      </div>
+
+      <button type="button" class="btn btn-outline" id="btn-header-home" style="padding: 0.35rem 0.75rem; font-size: 0.82rem; color: #ffffff; border-color: rgba(255,255,255,0.3);">
+        🏠 Inicio
+      </button>
+    </div>
+  </header>
+
+  <!-- Contenedor Principal de Pantallas -->
+  <main class="app-container">
+
+    <!-- Banner Global de Aclaración sobre el Prototipo de Inteligencia Artificial -->
+    <aside class="ai-prototype-disclaimer">
+      <span class="ai-disclaimer-icon">💡</span>
+      <div>
+        <strong>Nota para la presentación académica:</strong> Este prototipo simula un sistema de recomendación inteligente. En una futura implementación, la IA seleccionará materiales educativos según las características y necesidades de cada estudiante sin requerir internet.
+      </div>
+    </aside>
+
+    <!-- ====================================================================
+         PANTALLA 1: INICIO DE SESIÓN Y BIENVENIDA
+         ==================================================================== -->
+    <section id="pantalla-1" class="screen-view active-screen">
+      <div class="welcome-hero-grid">
+        <div class="welcome-content">
+          <div class="tag-calca" style="width: fit-content;">
+            <span>📍 Calca, Cusco • Valle Sagrado</span>
+          </div>
+          <h2 class="welcome-title-large">Mochila Educativa Offline</h2>
+          <p class="welcome-slogan">“Aprender a tu ritmo, desde donde estés”</p>
+          <p class="welcome-desc">
+            Propuesta tecnológica orientada a reducir la deserción escolar en estudiantes de 1.° a 3.° de secundaria en comunidades rurales de Calca, mediante recomendación personalizada de materiales con pertinencia cultural y lingüística.
+          </p>
+
+          <div class="welcome-roles-selection">
+            <div class="role-choice-card" id="btn-welcome-estudiante">
+              <div class="role-icon-box">👩‍🎓</div>
+              <div class="role-info-box">
+                <h3>Soy estudiante</h3>
+                <p>Ingresa al espacio de aprendizaje de <strong>María Quispe</strong> (2.° de secundaria). Realiza tu diagnóstico y descubre tu ruta semanal.</p>
+              </div>
+              <div style="margin-left: auto; color: var(--color-verde-medio); font-weight: 700;">Ingresar →</div>
+            </div>
+
+            <div class="role-choice-card docente" id="btn-welcome-docente">
+              <div class="role-icon-box">👨‍🏫</div>
+              <div class="role-info-box">
+                <h3>Soy docente tutor</h3>
+                <p>Ingresa al panel del <strong>Prof. Carlos Mamani</strong>. Monitorea el diagnóstico de 25 alumnos, identifica necesidades y gestiona rutas.</p>
+              </div>
+              <div style="margin-left: auto; color: var(--color-azul-medio); font-weight: 700;">Ingresar →</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ilustración Vectorial Rural Andina de Calca -->
+        <div class="welcome-illustration-card">
+          <svg class="andean-landscape-art" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#a8dadc"/>
+                <stop offset="100%" stop-color="#f1faee"/>
+              </linearGradient>
+              <linearGradient id="mtnBack" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#457b9d"/>
+                <stop offset="100%" stop-color="#1d3557"/>
+              </linearGradient>
+              <linearGradient id="mtnFront" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#2d6a4f"/>
+                <stop offset="100%" stop-color="#1b4332"/>
+              </linearGradient>
+              <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffb703"/>
+                <stop offset="100%" stop-color="#fb8500"/>
+              </linearGradient>
+            </defs>
+            <!-- Cielo -->
+            <rect width="400" height="300" rx="16" fill="url(#skyGrad)"/>
+            <!-- Sol Inti Andino -->
+            <circle cx="200" cy="85" r="42" fill="url(#sunGrad)"/>
+            <path d="M200 30 L200 40 M200 130 L200 140 M145 85 L155 85 M245 85 L255 85 M160 45 L168 53 M232 117 L240 125 M160 125 L168 117 M232 53 L240 45" stroke="#fb8500" stroke-width="4" stroke-linecap="round"/>
+            <!-- Montañas Nevadas del Valle Sagrado (Pitusiray) -->
+            <polygon points="50,220 160,80 260,220" fill="url(#mtnBack)"/>
+            <polygon points="160,80 135,115 150,110 160,120 172,110 185,118" fill="#ffffff"/>
+            <polygon points="180,230 290,95 380,230" fill="url(#mtnBack)"/>
+            <polygon points="290,95 270,125 285,120 295,130 305,120 315,128" fill="#ffffff"/>
+            <!-- Andenes Agrícolas (Terrazas de Cultivo de Calca) -->
+            <path d="M0 240 Q100 215 200 230 T400 220 L400 300 L0 300 Z" fill="url(#mtnFront)"/>
+            <path d="M0 260 Q120 245 220 255 T400 245" stroke="#52b788" stroke-width="3" fill="none"/>
+            <path d="M0 280 Q140 268 250 275 T400 265" stroke="#52b788" stroke-width="3" fill="none"/>
+            <!-- Escuela Rural con Mochila y Antena -->
+            <rect x="60" y="210" width="70" height="50" rx="4" fill="#ffffff" stroke="#e07a5f" stroke-width="2"/>
+            <polygon points="55,210 95,185 135,210" fill="#e07a5f"/>
+            <rect x="85" y="235" width="20" height="25" fill="#1d3557"/>
+            <rect x="68" y="222" width="12" height="12" fill="#a8dadc"/>
+            <rect x="110" y="222" width="12" height="12" fill="#a8dadc"/>
+            <!-- Antena Comunitaria Offline -->
+            <line x1="125" y1="185" x2="125" y2="155" stroke="#333" stroke-width="2"/>
+            <path d="M115 160 A12 12 0 0 1 135 160" fill="none" stroke="#2d6a4f" stroke-width="2"/>
+            <path d="M110 152 A20 20 0 0 1 140 152" fill="none" stroke="#2d6a4f" stroke-width="2"/>
+            <!-- Mochila Educativa -->
+            <rect x="270" y="200" width="55" height="65" rx="10" fill="#2d6a4f" stroke="#d4a373" stroke-width="3"/>
+            <path d="M280 200 L280 185 Q297 175 315 185 L315 200" fill="none" stroke="#d4a373" stroke-width="3"/>
+            <rect x="278" y="225" width="39" height="25" rx="5" fill="#e07a5f"/>
+            <circle cx="297" cy="237" r="4" fill="#ffffff"/>
+          </svg>
+
+          <div class="calca-badge-location">
+            <span>🌄 Valle Sagrado • Calca, Cusco</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--color-texto-secundario); margin-top: 0.75rem;">
+            Tecnología diseñada para operar sin conexión continua a internet.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PANTALLA 2: PANEL DEL ESTUDIANTE (MARÍA QUISPE)
+         ==================================================================== -->
+    <section id="pantalla-2" class="screen-view">
+      <!-- Banner de Perfil de María Quispe -->
+      <div class="andean-banner">
+        <div class="student-banner-layout">
+          <div class="student-avatar-large">👧</div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+              <h2 style="font-size: 1.6rem; font-weight: 800;">¡Allillanchu, María Quispe! 👋</h2>
+              <span class="tag-quechua">Runa Simi (Quechua)</span>
+            </div>
+            <p style="font-size: 0.95rem; opacity: 0.9; margin-top: 0.35rem;">
+              Bienvenida a tu espacio de aprendizaje. Aquí tienes tus materiales y actividades organizadas para esta semana.
+            </p>
+            <div class="student-meta-grid">
+              <div class="student-meta-item">🏫 <strong>I.E.:</strong> San Jerónimo de Calca</div>
+              <div class="student-meta-item">📚 <strong>Grado:</strong> 2.° de secundaria - Sección B</div>
+              <div class="student-meta-item">🗣️ <strong>Lengua preferida:</strong> Quechua Collao</div>
+              <div class="student-meta-item">🌱 <strong>Interés:</strong> Naturaleza y agricultura andina</div>
+            </div>
+          </div>
+          <div>
+            <button type="button" class="btn btn-terracota btn-lg" id="btn-iniciar-diagnostico-p2">
+              📝 Realizar diagnóstico
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjetas de Acceso Principal -->
+      <div class="student-dash-grid">
+        <!-- Tarjeta 1: Mi Diagnóstico -->
+        <div class="card feature-dash-card card-diag">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <span style="font-size: 2rem;">📋</span>
+              <span class="tag-calca" id="p2-diag-status-badge">Pendiente</span>
+            </div>
+            <h3 class="card-title" style="margin-top: 0.75rem;">Mi diagnóstico</h3>
+            <p class="card-subtitle">
+              Evaluación formativa de 10 preguntas (Matemática y Comprensión lectora) basada en situaciones reales de Calca.
+            </p>
+          </div>
+          <div>
+            <button type="button" class="btn btn-terracota btn-block" id="btn-card-diagnostico">
+              Comenzar diagnóstico →
+            </button>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2: Mi Ruta Semanal -->
+        <div class="card feature-dash-card card-ruta">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <span style="font-size: 2rem;">📅</span>
+              <span class="tag-quechua" id="p2-ruta-progress-badge">0% completado</span>
+            </div>
+            <h3 class="card-title" style="margin-top: 0.75rem;">Mi ruta semanal</h3>
+            <p class="card-subtitle">
+              Planificación semanal personalizada con 3 materiales clave adaptados a tu ritmo y tus gustos por la chakra.
+            </p>
+          </div>
+          <div>
+            <button type="button" class="btn btn-secondary btn-block" id="btn-card-ruta">
+              Ver mi planificación →
+            </button>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: Mis Materiales Educativos -->
+        <div class="card feature-dash-card card-mat">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <span style="font-size: 2rem;">📚</span>
+              <span class="tag-calca">3 guardados</span>
+            </div>
+            <h3 class="card-title" style="margin-top: 0.75rem;">Mis materiales</h3>
+            <p class="card-subtitle">
+              Fichas ilustradas, audios en quechua y videos educativos almacenados en la memoria de este dispositivo.
+            </p>
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary btn-block" id="btn-card-materiales">
+              Explorar biblioteca offline →
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PANTALLA 3: DIAGNÓSTICO ACADÉMICO (10 PREGUNTAS)
+         ==================================================================== -->
+    <section id="pantalla-3" class="screen-view">
+      <div class="quiz-wrapper">
+        <div class="quiz-header-status">
+          <div>
+            <span class="tag-calca" id="quiz-area-badge">Matemática</span>
+            <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--color-azul-noche); margin-top: 0.35rem;">
+              Diagnóstico de Entrada: 2.° de Secundaria
+            </h2>
+          </div>
+          <div style="text-align: right;">
+            <span style="font-weight: 700; font-size: 1.1rem; color: var(--color-verde-oscuro);" id="quiz-counter-text">
+              Pregunta 1 de 10
+            </span>
+          </div>
+        </div>
+
+        <!-- Barra de Progreso del Cuestionario -->
+        <div class="progress-track" aria-label="Progreso del diagnóstico">
+          <div class="progress-bar-fill" id="quiz-progress-bar" style="width: 10%;"></div>
+        </div>
+
+        <!-- Tarjeta de la Pregunta Actual -->
+        <div class="card quiz-card">
+          <!-- Contexto Cultural / Pedagógico -->
+          <div class="quiz-context-box">
+            <strong>Situación contextualizada:</strong>
+            <p id="quiz-context-text">Cargando contexto...</p>
+          </div>
+
+          <!-- Pregunta -->
+          <h3 class="quiz-question-text" id="quiz-question-title">Cargando enunciado...</h3>
+
+          <!-- Opciones de Respuesta -->
+          <div class="options-list" id="quiz-options-container">
+            <!-- Renderizado dinámicamente -->
+          </div>
+
+          <!-- Retroalimentación Pedagógica Inmediata -->
+          <div id="quiz-feedback-box" style="display: none; padding: 0.85rem 1rem; border-radius: var(--radio-md); margin-bottom: 1.25rem; font-size: 0.9rem;"></div>
+
+          <!-- Navegación entre Preguntas -->
+          <div class="quiz-navigation-footer">
+            <button type="button" class="btn btn-outline" id="btn-quiz-prev">
+              ← Anterior
+            </button>
+
+            <button type="button" class="btn btn-primary" id="btn-quiz-next">
+              Siguiente →
+            </button>
+
+            <button type="button" class="btn btn-terracota btn-lg" id="btn-quiz-finish" style="display: none;">
+              🎯 Ver mis resultados
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PANTALLA 4: RESULTADOS DEL DIAGNÓSTICO
+         ==================================================================== -->
+    <section id="pantalla-4" class="screen-view">
+      <div class="andean-banner">
+        <h2 style="font-size: 1.6rem; font-weight: 800;">📊 Resultados de tu Diagnóstico Académico</h2>
+        <p style="font-size: 0.95rem; opacity: 0.9; margin-top: 0.25rem;">
+          Evaluación completada para <strong>María Quispe Huamán</strong> (2.° B - I.E. Rural de Calca).
+        </p>
+      </div>
+
+      <!-- Tarjetas de Puntaje Visual -->
+      <div class="results-grid">
+        <!-- Tarjeta Matemática (60%) -->
+        <div class="card score-card">
+          <span class="tag-materia-mat">Área Curricular: Matemática</span>
+          <div class="score-circle-wrapper">
+            <svg class="score-circle-svg" viewBox="0 0 100 100">
+              <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
+              <circle class="score-circle-fill mat" id="circle-mat-fill" cx="50" cy="50" r="42"
+                      stroke-dasharray="264" stroke-dashoffset="105"/> <!-- 60% -->
+            </svg>
+            <span class="score-percent-label" id="label-score-mat">60%</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--color-azul-noche);">Desempeño en Matemática</h3>
+          <p style="font-size: 0.88rem; color: var(--color-texto-secundario); margin-top: 0.25rem;">
+            3 de 5 situaciones resueltas adecuadamente.
+          </p>
+        </div>
+
+        <!-- Tarjeta Comprensión Lectora (80%) -->
+        <div class="card score-card">
+          <span class="tag-materia-lec">Área Curricular: Comprensión Lectora</span>
+          <div class="score-circle-wrapper">
+            <svg class="score-circle-svg" viewBox="0 0 100 100">
+              <circle class="score-circle-bg" cx="50" cy="50" r="42"/>
+              <circle class="score-circle-fill" id="circle-lec-fill" cx="50" cy="50" r="42"
+                      stroke-dasharray="264" stroke-dashoffset="52"/> <!-- 80% -->
+            </svg>
+            <span class="score-percent-label" id="label-score-lec">80%</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--color-azul-noche);">Desempeño en Lectura</h3>
+          <p style="font-size: 0.88rem; color: var(--color-texto-secundario); margin-top: 0.25rem;">
+            4 de 5 situaciones resueltas con solvencia.
+          </p>
+        </div>
+      </div>
+
+      <!-- Temas Prioritarios y Destacados -->
+      <div class="focus-topics-grid">
+        <div class="focus-card-alert reforzar">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem;">
+            <span style="font-size: 1.4rem;">⚠️</span>
+            <h4 style="font-size: 1.05rem; color: #b45309; font-weight: 700;">Tema prioritario por reforzar:</h4>
+          </div>
+          <p style="font-weight: 600; color: #78350f;" id="p4-tema-reforzar">Operaciones con fracciones en la siembra</p>
+          <p style="font-size: 0.88rem; color: #92400e; margin-top: 0.35rem;">
+            Dificultad identificada al sumar y restar fracciones aplicadas a la repartición de parcelas y sacos de abono.
+          </p>
+        </div>
+
+        <div class="focus-card-alert destacado">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem;">
+            <span style="font-size: 1.4rem;">🌟</span>
+            <h4 style="font-size: 1.05rem; color: #15803d; font-weight: 700;">Tema destacado:</h4>
+          </div>
+          <p style="font-weight: 600; color: #14532d;" id="p4-tema-destacado">Comprensión de textos descriptivos e inferenciales</p>
+          <p style="font-size: 0.88rem; color: #166534; margin-top: 0.35rem;">
+            Excelente deducción de causas-efectos y valores de reciprocidad andina (Ayni y Minka).
+          </p>
+        </div>
+      </div>
+
+      <!-- Mensaje Motivador y Quechua -->
+      <div class="motivational-box">
+        <span style="font-size: 2.2rem;">💪</span>
+        <div style="flex: 1;">
+          <p style="font-size: 1.05rem; font-weight: 700; color: var(--color-verde-oscuro);">
+            “¡Buen trabajo, María! Vamos a reforzar juntos los temas que necesitas practicar”.
+          </p>
+          <p style="font-size: 0.9rem; color: #78350f; font-style: italic; margin-top: 0.2rem;">
+            «¡Allillam María! Kuska kallpachasunchis chakra llamk'aymanta yupaykunata».
+          </p>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button type="button" class="btn btn-terracota btn-lg" id="btn-generar-ruta-ia">
+          ✨ Generar mi ruta semanal personalizada con IA →
+        </button>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PANTALLA 5: RECOMENDACIÓN PERSONALIZADA DE MATERIALES (MOTOR DE IA)
+         ==================================================================== -->
+    <section id="pantalla-5" class="screen-view">
+      <div class="andean-banner ia-theme">
+        <h2 style="font-size: 1.6rem; font-weight: 800;">🧠 Motor Inteligente de Recomendación Curricular</h2>
+        <p style="font-size: 0.95rem; opacity: 0.9; margin-top: 0.25rem;">
+          El sistema analiza en tiempo real las características del estudiante para generar una ruta pedagógica a la medida.
+        </p>
+      </div>
+
+      <!-- Las 3 Variables Clave Analizadas por la IA -->
+      <div class="ai-pipeline-grid">
+        <!-- Factor 1: Diagnóstico -->
+        <div class="ai-input-card" id="ai-card-1">
+          <span class="ai-step-badge">Variable 1</span>
+          <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">📉</div>
+          <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--color-azul-noche);">1. Nivel Académico</h4>
+          <p style="font-size: 0.85rem; color: var(--color-texto-secundario); margin: 0.35rem 0;">
+            Diagnóstico obtenido: <strong>60% Matemática</strong>.
+          </p>
+          <div class="tag-materia-mat" style="font-size: 0.75rem;">Foco: Refuerzo en Fracciones</div>
+        </div>
+
+        <!-- Factor 2: Intereses -->
+        <div class="ai-input-card" id="ai-card-2">
+          <span class="ai-step-badge">Variable 2</span>
+          <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🌱</div>
+          <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--color-azul-noche);">2. Intereses del Estudiante</h4>
+          <p style="font-size: 0.85rem; color: var(--color-texto-secundario); margin: 0.35rem 0;">
+            Preferencia declarada: <strong>Agricultura y Naturaleza</strong>.
+          </p>
+          <div class="tag-calca" style="font-size: 0.75rem;">Contexto: Cosecha y Chakras</div>
+        </div>
+
+        <!-- Factor 3: Lengua Preferida -->
+        <div class="ai-input-card" id="ai-card-3">
+          <span class="ai-step-badge">Variable 3</span>
+          <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🗣️</div>
+          <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--color-azul-noche);">3. Lengua Preferida</h4>
+          <p style="font-size: 0.85rem; color: var(--color-texto-secundario); margin: 0.35rem 0;">
+            Elección lingüística: <strong>Quechua Collao</strong>.
+          </p>
+          <div class="tag-quechua" style="font-size: 0.75rem;">Materiales EIB y bilingües</div>
+        </div>
+      </div>
+
+      <!-- Telemetría y Animación de Procesamiento de IA -->
+      <div class="ai-processing-visual" id="ai-processing-box">
+        <div class="ai-spinner-radar"></div>
+        <div>
+          <div style="font-weight: 700; color: #ffffff;" id="ai-processing-status-title">
+            Ejecutando algoritmo de ponderación offline...
+          </div>
+          <div style="font-size: 0.8rem; opacity: 0.8;" id="ai-processing-status-desc">
+            Cruzando debilidad curricular (fracciones) + interés temático (agricultura) + formato en Quechua...
+          </div>
+        </div>
+      </div>
+
+      <!-- Título de los 3 Materiales Generados -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+        <div>
+          <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--color-azul-noche);">
+            🎯 3 Materiales Recomendados para la Semana
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--color-texto-secundario);">
+            Materiales descargados y listos para usar en este dispositivo sin internet.
+          </p>
+        </div>
+        <button type="button" class="btn btn-primary" id="btn-ir-ruta-calendario">
+          Ver en el calendario semanal →
+        </button>
+      </div>
+
+      <!-- Grilla de los 3 Materiales -->
+      <div class="recommended-materials-grid" id="recommended-materials-list">
+        <!-- Se renderizan los 3 materiales requeridos: Ficha, Audio en Quechua, Video -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PANTALLA 6: MI RUTA SEMANAL (LUNES A VIERNES)
+         ==================================================================== -->
+    <section id="pantalla-6" class="screen-view">
+      <div class="andean-banner">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2 style="font-size: 1.6rem; font-weight: 800;">📅 Mi Ruta Semanal de Aprendizaje</h2>
+            <p style="font-size: 0.95rem; opacity: 0.9; margin-top: 0.25rem;">
+              Plan de lunes a viernes para <strong>María Quispe</strong> con los 3 materiales asignados.
+            </p>
+          </div>
+          <div class="tag-quechua" style="font-size: 0.9rem; padding: 0.4rem 0.9rem;">
+            <span>🌱 Semana 12 • Valle Sagrado</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra de Avance Semanal Dinámica -->
+      <div class="weekly-progress-banner">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
+          <div>
+            <span style="font-weight: 700; color: var(--color-azul-noche); font-size: 1.05rem;">
+              Progreso del plan semanal:
+            </span>
+            <span style="font-size: 0.88rem; color: var(--color-texto-secundario); margin-left: 0.5rem;" id="weekly-status-text">
+              0 de 5 actividades completadas
+            </span>
+          </div>
+          <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-verde-oscuro);" id="weekly-percent-label">
+            0%
+          </div>
+        </div>
+
+        <div class="progress-track" style="margin-bottom: 0;">
+          <div class="progress-bar-fill" id="weekly-progress-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Lista de Actividades de Lunes a Viernes -->
+      <div class="weekly-schedule-list" id="weekly-schedule-container">
+        <!-- Renderizado dinámicamente con checkboxes interactivos -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PANTALLA 7: PANEL DEL DOCENTE TUTOR
+         ==================================================================== -->
+    <section id="pantalla-7" class="screen-view">
+      <div class="andean-banner docente-theme">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <h2 style="font-size: 1.6rem; font-weight: 800;">👨‍🏫 Panel del Docente Tutor</h2>
+              <span class="tag-calca" style="background: rgba(255,255,255,0.2); color: #fff; border-color: rgba(255,255,255,0.3);">
+                Prof. Carlos Mamani
+              </span>
+            </div>
+            <p style="font-size: 0.95rem; opacity: 0.9; margin-top: 0.25rem;">
+              Monitoreo pedagógico y alertas tempranas del aula: <strong>2.° de secundaria - Sección B</strong> (Calca).
+            </p>
+          </div>
+          <div>
+            <button type="button" class="btn btn-outline" id="btn-docente-distrib-shortcut" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">
+              💾 Gestión de USBs y Radio →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Métricas Clave del Aula Solicitadas -->
+      <div class="teacher-kpis-grid">
+        <div class="kpi-card">
+          <div style="font-size: 1.6rem;">👥</div>
+          <div class="kpi-number">25</div>
+          <div class="kpi-label">Total de estudiantes en el aula</div>
+        </div>
+
+        <div class="kpi-card" style="border-top-color: var(--color-verde-medio);">
+          <div style="font-size: 1.6rem;">📝</div>
+          <div class="kpi-number">20</div>
+          <div class="kpi-label">Estudiantes con diagnóstico realizado</div>
+        </div>
+
+        <div class="kpi-card" style="border-top-color: var(--color-terracota);">
+          <div style="font-size: 1.6rem;">🗺️</div>
+          <div class="kpi-number">20</div>
+          <div class="kpi-label">Rutas semanales generadas con IA</div>
+        </div>
+
+        <div class="kpi-card" style="border-top-color: #8b5cf6;">
+          <div style="font-size: 1.6rem;">✅</div>
+          <div class="kpi-number" id="kpi-materiales-completados">15</div>
+          <div class="kpi-label">Materiales completados esta semana</div>
+        </div>
+      </div>
+
+      <!-- Gráficos de Temas por Reforzar y Materiales -->
+      <div class="teacher-charts-grid">
+        <!-- Gráfico 1: Temas que requieren mayor refuerzo -->
+        <div class="card">
+          <h3 class="card-title">⚠️ Temas con mayor necesidad de refuerzo</h3>
+          <p class="card-subtitle">Identificados a partir de los diagnósticos offline procesados en el aula.</p>
+
+          <div class="bar-chart-container" id="chart-temas-refuerzo">
+            <!-- Renderizado dinámico -->
+          </div>
+        </div>
+
+        <!-- Gráfico 2: Materiales más recomendados -->
+        <div class="card">
+          <h3 class="card-title">📦 Materiales más asignados por el recomendador</h3>
+          <p class="card-subtitle">Recursos curriculares con mayor demanda según intereses y nivel.</p>
+
+          <div class="bar-chart-container" id="chart-materiales-recomendados">
+            <!-- Renderizado dinámico -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabla de Estudiantes del Aula -->
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+          <div>
+            <h3 class="card-title" style="margin-bottom: 0.2rem;">📋 Registro Individual de Estudiantes</h3>
+            <p class="card-subtitle" style="margin-bottom: 0;">Selecciona un estudiante para revisar su ficha pedagógica detallada.</p>
+          </div>
+          <div class="tag-calca">
+            <span>Mostrando aula completa de Calca</span>
+          </div>
+        </div>
+
+        <div class="student-table-container">
+          <table class="student-table">
+            <thead>
+              <tr>
+                <th>Estudiante</th>
+                <th>Comunidad</th>
+                <th>Lengua</th>
+                <th>Diagnóstico</th>
+                <th>Matemática</th>
+                <th>Lectura</th>
+                <th>Avance Ruta</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody id="student-table-body">
+              <!-- Renderizado dinámico -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PANTALLA 8: MATERIALES PARA RADIO Y USB (DISTRIBUCIÓN OFFLINE)
+         ==================================================================== -->
+    <section id="pantalla-8" class="screen-view">
+      <div class="andean-banner radio-theme">
+        <h2 style="font-size: 1.6rem; font-weight: 800;">📻 Distribución Comunitaria: Radio Local y USB</h2>
+        <p style="font-size: 0.95rem; opacity: 0.9; margin-top: 0.25rem;">
+          Mecanismos físicos y de broadcast para garantizar el acceso educativo en zonas rurales sin internet de Calca.
+        </p>
+      </div>
+
+      <div class="offline-distrib-grid">
+        <!-- Módulo 1: Simulador de Transferencia a Memoria USB -->
+        <div class="usb-sync-widget">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div class="usb-icon-box">💾</div>
+            <div>
+              <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--color-azul-noche);">
+                Sincronización con Memoria USB
+              </h3>
+              <p style="font-size: 0.85rem; color: var(--color-texto-secundario);">
+                Copia las rutas y materiales para llevar a estudiantes en sus comunidades.
+              </p>
+            </div>
+          </div>
+
+          <div class="usb-drive-graphic">
+            <span style="font-size: 1.8rem;">🔌</span>
+            <div style="flex: 1;">
+              <div style="font-weight: 700; font-size: 0.95rem;">Kingston DataTraveler 16GB (FAT32)</div>
+              <div style="font-size: 0.8rem; color: var(--color-verde-oscuro);">● Conectada y lista • 12.4 GB libres</div>
+            </div>
+          </div>
+
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem;">
+            Paquete semanal listo para transferir:
+          </h4>
+          <ul class="usb-file-list">
+            <li>📄 Ficha_Fracciones_Cosecha_Calca.pdf (2.4 MB)</li>
+            <li>🎧 Audio_Chakra_Yupaykuna_Quechua.mp3 (5.8 MB)</li>
+            <li>🎬 Video_Condor_Lluvia_Sagrado.mp4 (14.2 MB)</li>
+            <li>📊 Registro_Avance_Semana12_Maria.dat (0.1 MB)</li>
+          </ul>
+
+          <div id="usb-transfer-progress-wrapper" style="display: none; margin-bottom: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.35rem;">
+              <span id="usb-progress-label">Copiando archivos al USB...</span>
+              <span id="usb-percent-label">0%</span>
+            </div>
+            <div class="progress-track" style="margin-bottom: 0;">
+              <div class="progress-bar-fill" id="usb-progress-bar" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <div id="usb-success-alert" style="display: none; padding: 0.75rem 1rem; background-color: var(--color-exito-bg); border: 1px solid #81c784; border-radius: var(--radio-md); margin-bottom: 1.25rem; font-size: 0.88rem; color: #1b5e20;">
+            ✅ <strong>¡Transferencia exitosa!</strong> 4 archivos copiados a la memoria USB. El material puede ser utilizado en tablets o laptops comunitarias sin conexión.
+          </div>
+
+          <button type="button" class="btn btn-primary btn-block btn-lg" id="btn-iniciar-usb">
+            📥 Transferir paquete a la memoria USB
+          </button>
+        </div>
+
+        <!-- Módulo 2: Emisión por Radio Comunitaria Rural -->
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+            <div style="width: 50px; height: 50px; background: var(--color-ocre-suave); border-radius: var(--radio-md); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">
+              📻
+            </div>
+            <div>
+              <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--color-azul-noche);">
+                Microprogramas de Radio Comunal
+              </h3>
+              <p style="font-size: 0.85rem; color: var(--color-texto-secundario);">
+                Transmisión de los contenidos de audio en horarios acordados con los ayllus.
+              </p>
+            </div>
+          </div>
+
+          <!-- Estación 1: Radio Calca -->
+          <div class="radio-station-card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <strong style="color: var(--color-azul-noche); font-size: 1.05rem;">La Voz del Valle Educativo</strong>
+                <div style="font-size: 0.82rem; color: var(--color-verde-oscuro); font-weight: 600;">Radio Calca 98.5 FM</div>
+              </div>
+              <span class="tag-calca">Próxima emisión</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--color-texto-secundario); margin: 0.5rem 0;">
+              <strong>Horario:</strong> Lunes, Miércoles y Viernes a las 4:30 p.m.
+            </p>
+            <p style="font-size: 0.82rem; color: var(--color-texto-secundario);">
+              <strong>Contenido:</strong> Episodio radial «Chakra llamk'aypi yupaykuna» (Matemáticas en el campo).
+            </p>
+          </div>
+
+          <!-- Estación 2: Radio Inti Raymi -->
+          <div class="radio-station-card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <strong style="color: var(--color-azul-noche); font-size: 1.05rem;">Yachasun Allin Kawsayta</strong>
+                <div style="font-size: 0.82rem; color: var(--color-terracota); font-weight: 600;">Radio Inti Raymi 102.1 FM</div>
+              </div>
+              <span class="tag-quechua">Quechua Collao</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--color-texto-secundario); margin: 0.5rem 0;">
+              <strong>Horario:</strong> Martes y Jueves a las 5:00 p.m.
+            </p>
+            <p style="font-size: 0.82rem; color: var(--color-texto-secundario);">
+              <strong>Contenido:</strong> Relatos andinos y comprensión oral para adolescentes rurales.
+            </p>
+          </div>
+
+          <div style="background-color: var(--color-tierra-suave); padding: 0.75rem 1rem; border-radius: var(--radio-md); font-size: 0.82rem; color: var(--color-texto-secundario); border: 1px solid var(--color-tierra-borde);">
+            💡 <strong>Estrategia pedagógica:</strong> Los estudiantes que no cuentan con tablet propia pueden sintonizar el microprograma por radio y complementar la guía impresa entregada por el docente.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       MODALES DE INTERACCIÓN (VISOR DE MATERIALES Y FICHA DOCENTE)
+       ==================================================================== -->
+
+  <!-- Modal 1: Visor Demostrativo de Materiales (Ficha, Audio, Video) -->
+  <div class="modal-overlay" id="modal-material-viewer" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card-box">
+      <div class="modal-header-bar">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 1.5rem;" id="modal-material-type-icon">📄</span>
+          <div>
+            <h3 style="font-size: 1.1rem; font-weight: 700;" id="modal-material-title">Título del Material</h3>
+            <span style="font-size: 0.75rem; opacity: 0.85;" id="modal-material-meta">Área • Idioma • Duración</span>
+          </div>
+        </div>
+        <button type="button" class="modal-close-button" id="btn-close-material-modal" aria-label="Cerrar modal">&times;</button>
+      </div>
+
+      <div class="modal-body-scrollable" id="modal-material-content-body">
+        <!-- Inyectado dinámicamente según el tipo de material -->
+      </div>
+
+      <div style="padding: 1rem 1.5rem; background-color: #f8fafc; border-top: 1px solid var(--color-borde); display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 0.8rem; color: var(--color-texto-apagado);">
+          💾 Almacenado localmente en caché offline
+        </span>
+        <button type="button" class="btn btn-outline" id="btn-modal-entendido">
+          Entendido / Cerrar vista previa
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Ficha Pedagógica del Alumno para el Docente Tutor -->
+  <div class="modal-overlay" id="modal-docente-student" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card-box" style="max-width: 650px;">
+      <div class="modal-header-bar" style="background: var(--color-azul-noche);">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 1.5rem;">📋</span>
+          <div>
+            <h3 style="font-size: 1.1rem; font-weight: 700;" id="modal-doc-student-name">María Quispe Huamán</h3>
+            <span style="font-size: 0.75rem; opacity: 0.85;" id="modal-doc-student-community">Comunidad de Arin, Calca</span>
+          </div>
+        </div>
+        <button type="button" class="modal-close-button" id="btn-close-docente-student-modal">&times;</button>
+      </div>
+
+      <div class="modal-body-scrollable" id="modal-doc-student-body">
+        <!-- Detalle inyectado dinámicamente -->
+      </div>
+
+      <div style="padding: 1rem 1.5rem; background-color: #f8fafc; border-top: 1px solid var(--color-borde); text-align: right;">
+        <button type="button" class="btn btn-secondary" id="btn-modal-docente-cerrar">
+          Cerrar ficha del estudiante
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Guía Rápida para la Exposición Académica -->
+  <div class="modal-overlay" id="modal-presentation-guide" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card-box" style="max-width: 700px;">
+      <div class="modal-header-bar" style="background: #111827;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 1.5rem;">🎤</span>
+          <div>
+            <h3 style="font-size: 1.1rem; font-weight: 700;">Guía para la Exposición Académica</h3>
+            <span style="font-size: 0.75rem; opacity: 0.85;">Recorrido pedagógico paso a paso del prototipo</span>
+          </div>
+        </div>
+        <button type="button" class="modal-close-button" id="btn-close-guide-modal">&times;</button>
+      </div>
+
+      <div class="modal-body-scrollable" style="line-height: 1.6; font-size: 0.95rem;">
+        <h4 style="color: var(--color-verde-oscuro); margin-bottom: 0.5rem;">Narrativa recomendada para exponer:</h4>
+        <ol style="padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.65rem;">
+          <li><strong>Paso 1 (Bienvenida):</strong> Presenta el problema de la deserción escolar en zonas rurales de Calca y cómo la tecnología 100% offline resuelve la brecha de conectividad.</li>
+          <li><strong>Paso 2 (Panel Estudiante):</strong> Muestra a María Quispe, estudiante quechuahablante de 2.° de secundaria interesada en la agricultura.</li>
+          <li><strong>Paso 3 y 4 (Diagnóstico y Resultados):</strong> Realiza o muestra la evaluación formativa contextualizada en cosechas y relatos andinos (60% en matemática con necesidad de reforzar fracciones).</li>
+          <li><strong>Paso 5 (Recomendador IA):</strong> Explica cómo el motor cruza nivel académico + intereses agrícolas + lengua quechua para sugerir 3 materiales precisos.</li>
+          <li><strong>Paso 6 (Ruta Semanal):</strong> Enseña la planificación de lunes a viernes y cómo marcar actividades actualiza el progreso en tiempo real.</li>
+          <li><strong>Paso 7 (Panel Docente):</strong> Pasa al rol del profesor tutor para ver las alertas del aula, temas críticos y el registro individual.</li>
+          <li><strong>Paso 8 (Radio y USB):</strong> Demuestra la transferencia simulada a memorias USB y la complementariedad con radios comunitarias locales.</li>
+        </ol>
+      </div>
+
+      <div style="padding: 1rem 1.5rem; background-color: #f8fafc; border-top: 1px solid var(--color-borde); text-align: right;">
+        <button type="button" class="btn btn-primary" id="btn-modal-guide-cerrar">
+          ¡Listo para exponer!
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       BARRA DE DEMOSTRACIÓN PARA PRESENTACIÓN ACADÉMICA (TOUR BAR)
+       ==================================================================== -->
+  <footer class="academic-tour-bar">
+    <div style="display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0;">
+      <span style="font-size: 1.1rem;">🎓</span>
+      <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-ocre-dorado);">Paso de exposición:</span>
+    </div>
+
+    <!-- Píldoras de Acceso Rápido a las 8 Pantallas -->
+    <nav class="tour-steps-nav" aria-label="Navegación de pasos de la presentación">
+      <button type="button" class="tour-step-pill active" data-step="pantalla-1">
+        1. Inicio
+      </button>
+      <button type="button" class="tour-step-pill" data-step="pantalla-2">
+        2. Estudiante
+      </button>
+      <button type="button" class="tour-step-pill" data-step="pantalla-3">
+        3. Diagnóstico
+      </button>
+      <button type="button" class="tour-step-pill" data-step="pantalla-4">
+        4. Resultados
+      </button>
+      <button type="button" class="tour-step-pill" data-step="pantalla-5">
+        5. Motor IA
+      </button>
+      <button type="button" class="tour-step-pill" data-step="pantalla-6">
+        6. Ruta Semanal
+      </button>
+      <button type="button" class="tour-step-pill" data-step="pantalla-7">
+        7. Docente
+      </button>
+      <button type="button" class="tour-step-pill" data-step="pantalla-8">
+        8. Radio y USB
+      </button>
+    </nav>
+
+    <!-- Controles Adicionales para el Expositor -->
+    <div class="tour-controls-right">
+      <button type="button" class="btn btn-outline" id="btn-open-guide" style="padding: 0.35rem 0.65rem; font-size: 0.78rem; color: #ffffff; border-color: #4b5563;" title="Ver guía de exposición">
+        💡 Guía
+      </button>
+      <button type="button" class="btn btn-outline" id="btn-reset-demo" style="padding: 0.35rem 0.65rem; font-size: 0.78rem; color: #fca5a5; border-color: #7f1d1d;" title="Reiniciar datos del prototipo">
+        🔄 Reiniciar
+      </button>
+    </div>
+  </footer>
+
+  <!-- Scripts del Prototipo -->
+  <script src="js/data.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
